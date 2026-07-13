@@ -1,5 +1,6 @@
 import { Activity, AlertTriangle, DollarSign, Users } from "lucide-react";
 import { prisma } from "@/lib/prisma";
+import { DashboardCharts } from "@/components/DashboardCharts";
 
 function getStatusStyles(status: string) {
   if (status === "Healthy") {
@@ -42,6 +43,29 @@ export default async function Home() {
     (total, customer) => total + customer.monthlyRevenue,
     0
   );
+
+  const statusData = [
+  {
+    name: "Healthy",
+    value: customers.filter((customer) => customer.healthStatus === "Healthy")
+      .length,
+  },
+  {
+    name: "Warning",
+    value: customers.filter((customer) => customer.healthStatus === "Warning")
+      .length,
+  },
+  {
+    name: "At Risk",
+    value: customers.filter((customer) => customer.healthStatus === "At Risk")
+      .length,
+  },
+  ];
+
+  const revenueData = customers.map((customer) => ({
+    name: customer.name.split(" ").slice(0, 2).join(" "),
+    revenue: customer.monthlyRevenue,
+  }));
 
   const averageHealthScore =
     customers.length > 0
@@ -108,6 +132,8 @@ export default async function Home() {
             <p className="mt-4 text-3xl font-bold">{averageHealthScore}</p>
           </div>
         </div>
+
+        <DashboardCharts statusData={statusData} revenueData={revenueData} />
 
         <div className="mt-8 rounded-2xl bg-white p-6 shadow-sm">
           <div className="mb-5 flex items-center justify-between">

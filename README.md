@@ -46,3 +46,59 @@ Health status is assigned using the following ranges:
 80-100 = Healthy
 50-79 = Warning
 0-49 = At Risk
+Database Models
+
+The app uses three main database models:
+
+Customer
+Activity
+Note
+
+Customers have related activities and notes, allowing each account detail page to show recent product interactions and customer success context.
+
+Local Setup
+
+Clone the repository:
+
+git clone https://github.com/lzamudio1217-blip/customer-health-dashboard.git
+cd customer-health-dashboard
+
+Install dependencies:
+
+npm install
+
+Create a .env file:
+
+DATABASE_URL="your_postgres_database_url"
+
+Run migrations:
+
+npx prisma migrate dev
+
+Seed the database:
+
+npx prisma db seed
+
+Start the development server:
+
+npm run dev
+
+Open:
+
+http://localhost:3000
+Project Purpose
+
+This project was built as a portfolio application to demonstrate full-stack software engineering, database modeling, dashboard development, customer analytics, and deployment skills. It is inspired by real customer success and internal analytics workflows.
+
+Future Improvements
+Add authentication
+Add customer creation and editing
+Add CSV import/export
+Add advanced filtering by plan, industry, and revenue
+Add automated tests
+Add role-based access control
+
+Save the file with:
+
+```text
+Ctrl + S

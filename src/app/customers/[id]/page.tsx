@@ -10,6 +10,8 @@ import {
 } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 
+export const dynamic = "force-dynamic";
+
 type CustomerPageProps = {
   params: Promise<{
     id: string;

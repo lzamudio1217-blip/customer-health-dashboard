@@ -4,6 +4,7 @@ import { DashboardCharts } from "@/components/DashboardCharts";
 import Link from "next/link";
 import type { Prisma } from "@prisma/client";
 
+export const dynamic = "force-dynamic";
 
 function getStatusStyles(status: string) {
   if (status === "Healthy") {

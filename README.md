@@ -1,40 +1,48 @@
-<<<<<<< HEAD
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Customer Health Dashboard
 
-## Getting Started
+A full-stack customer analytics dashboard built to track customer activity, revenue, support tickets, and account health scores. The app helps identify healthy, warning, and at-risk customer accounts using a database-backed dashboard with charts, filters, and customer detail pages.
 
-First, run the development server:
+## Live Demo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+https://customer-health-dashboard-azure.vercel.app/
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Dashboard overview with total customers, healthy accounts, at-risk accounts, monthly revenue, and average health score
+- Customer health scoring system using usage, engagement, support ticket load, and revenue signals
+- Customer account table sorted by lowest health score
+- Search and filter functionality for customer accounts
+- Health status categories: Healthy, Warning, and At Risk
+- Interactive dashboard charts for customer health breakdown and revenue
+- Clickable customer detail pages with account metrics, notes, and recent activity
+- PostgreSQL database integration using Prisma ORM
+- Seeded demo data for realistic customer success workflows
+- Deployed with Vercel
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Tech Stack
 
-## Learn More
+- Next.js
+- TypeScript
+- React
+- Tailwind CSS
+- Prisma
+- PostgreSQL
+- Recharts
+- Lucide React
+- Vercel
 
-To learn more about Next.js, take a look at the following resources:
+## Health Score Logic
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Each customer is assigned a health score from 0 to 100 based on multiple account signals:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Usage score
+- Engagement score
+- Support ticket volume
+- Monthly revenue
 
-## Deploy on Vercel
+Health status is assigned using the following ranges:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-=======
-# customer-health-dashboard
->>>>>>> 9d32faa22ebea9377fc8fa6b0c5df268b6422bc9
+```text
+80-100 = Healthy
+50-79 = Warning
+0-49 = At Risk

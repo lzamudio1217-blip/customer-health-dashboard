@@ -1,6 +1,7 @@
 import { Activity, AlertTriangle, DollarSign, Users } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { DashboardCharts } from "@/components/DashboardCharts";
+import Link from "next/link";
 
 function getStatusStyles(status: string) {
   if (status === "Healthy") {
@@ -163,7 +164,14 @@ export default async function Home() {
               <tbody>
                 {customers.map((customer) => (
                   <tr key={customer.id} className="border-t border-slate-200">
-                    <td className="px-4 py-4 font-medium">{customer.name}</td>
+                    <td className="px-4 py-4 font-medium">
+                      <Link
+                        href={`/customers/${customer.id}`}
+                        className="text-blue-600 hover:text-blue-800 hover:underline"
+                      >
+                        {customer.name}
+                      </Link>
+                    </td>
                     <td className="px-4 py-4">{customer.industry}</td>
                     <td className="px-4 py-4">{customer.plan}</td>
                     <td className="px-4 py-4">
